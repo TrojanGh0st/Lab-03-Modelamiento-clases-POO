@@ -15,7 +15,6 @@ public:
 
   // Método para verificar si la fecha límite es válida
   bool EsValida() {
-    // Validación de la fecha (aquí se puede agregar lógica de validación adicional)
     return true;
   }
 
