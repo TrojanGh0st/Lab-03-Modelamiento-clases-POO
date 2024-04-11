@@ -1,0 +1,57 @@
+# Clase que representa una fecha límite para una tarea
+class FechaLimite:
+    def __init__(self, dia, mes, anio):
+        self.dia = dia  # Inicialización del día
+        self.mes = mes  # Inicialización del mes
+        self.anio = anio  # Inicialización del año
+
+    def es_valida(self):
+        """
+        Método para verificar si la fecha límite es válida
+        """
+        return True  # Se asume que la fecha es siempre válida
+
+    def mostrar_informacion(self):
+        """
+        Método para mostrar la información de la fecha límite
+        """
+        print("**Fecha límite:** {}/{}/{}".format(self.dia, self.mes, self.anio))
+
+
+# Clase que representa una tarea en la aplicación
+class Tarea:
+    def __init__(self, titulo, descripcion, fecha_limite):
+        self.titulo = titulo  # Inicialización del título de la tarea
+        self.descripcion = descripcion  # Inicialización de la descripción de la tarea
+        self.fecha_limite = fecha_limite  # Inicialización de la fecha límite de la tarea
+
+    def mostrar_informacion(self):
+        """
+        Método para mostrar la información de la tarea
+        """
+        print("**Tarea:**", self.titulo)  # Mostrar el título de la tarea
+        print("**Descripción:**", self.descripcion)  # Mostrar la descripción de la tarea
+        self.fecha_limite.mostrar_informacion()  # Mostrar la fecha límite de la tarea
+
+
+# Clase que representa una tarea prioritaria en la aplicación
+class TareaPrioritaria(Tarea):
+    def __init__(self, titulo, descripcion, fecha_limite, prioridad):
+        super().__init__(titulo, descripcion, fecha_limite)
+        self.prioridad = prioridad  # Inicialización de la prioridad de la tarea prioritaria
+
+    def mostrar_informacion(self):
+        """
+        Método para mostrar la información de la tarea prioritaria
+        """
+        super().mostrar_informacion()  # Llamar al método de la clase base para mostrar la información básica
+        print("**Prioridad:**", self.prioridad)  # Mostrar la prioridad de la tarea prioritaria
+
+
+# Crear una fecha límite
+fecha_limite = FechaLimite(30, 4, 2024)
+fecha_limite.mostrar_informacion()  # Mostrar información de la fecha límite
+
+# Crear una tarea prioritaria y mostrar su información
+tarea = TareaPrioritaria("Hacer la presentación", "Preparar la presentación para el equipo", fecha_limite, 1)
+tarea.mostrar_informacion()  # Mostrar información de la tarea prioritaria
