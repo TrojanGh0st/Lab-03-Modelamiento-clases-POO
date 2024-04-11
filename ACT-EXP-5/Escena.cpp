@@ -14,6 +14,22 @@ void ingresarCredenciales(string& usuario, string& contrasena) {
     cin >> contrasena;
 }
 
+bool usuarioValido(const string& usuario) {
+    return usuario == "admin";
+}
+
+string contrasenaValida = "123";
+
+// Función para iniciar sesión
+bool iniciarSesion(const string& usuario, const string& contrasena) {
+    if (usuarioValido(usuario) && contrasena == contrasenaValida) {
+        return true;
+    } else {
+        cout << "Usuario o contraseña incorrectos" << endl;
+        return false;
+    }
+}
+
 class Tarea {
 public:
     Tarea(const string& nombre, const string& descripcion, const tm& fechaLimite)
@@ -94,6 +110,15 @@ int main() {
     // Agregando tareas al gestor de tareas
     gestorTareas.agregarTarea(tarea1);
     gestorTareas.agregarTarea(tarea2);
+
+    // Solicitar credenciales de usuario
+    string usuario, contrasena;
+    ingresarCredenciales(usuario, contrasena);
+
+    // Verificar credenciales
+    if (!iniciarSesion(usuario, contrasena)) {
+        return 1;
+    }
 
     // Mostrando tareas incompletas
     gestorTareas.mostrarTareasIncompletas();
