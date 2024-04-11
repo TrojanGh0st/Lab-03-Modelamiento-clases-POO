@@ -20,7 +20,7 @@ public:
 
   // Método para mostrar la información de la fecha límite
   void MostrarInformacion() {
-    cout << "**Fecha límite:** " << dia << "/" << mes << "/" << anio << endl; // Mostrar la fecha límite
+    cout << "Fecha límite: " << dia << "/" << mes << "/" << anio << endl; // Mostrar la fecha límite
   }
 
 private:
